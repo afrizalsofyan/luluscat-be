@@ -13,10 +13,11 @@ datasource db {
 model User {
   id              Int      @id @default(autoincrement())
   fullName        String?  @db.VarChar(255)   
-  email           String   @db.VarChar(255)   
-  phoneNumber     String   @db.VarChar(20)   
+  email           String   @db.VarChar(255)   @unique
+  phoneNumber     String   @db.VarChar(20)    @unique
   password        String   @db.VarChar(255)   
   referal         String?  @db.VarChar(255)   
   createAt        DateTime @default(now()) @db.Timestamp(6)
   status          Int      @default(0)
+  isVerify        Boolean  @default(false)
 }
